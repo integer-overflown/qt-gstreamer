@@ -21,6 +21,7 @@
 
 #include "element.h"
 #include "childproxy.h"
+#include "enums.h"
 
 #ifdef Q_CC_MSVC
 # pragma warning(push)
@@ -163,6 +164,32 @@ public:
     PadPtr findUnlinkedPad(PadDirection direction) const;
 
     bool recalculateLatency();
+
+    /*!
+     * To aid debugging applications one can use this method to obtain the whole network of
+     * gstreamer elements that form the pipeline into a dot file.
+     * This data can be processed with graphviz to get an image.
+     * @param details verbose level
+     * @return a string containing the pipeline in graphviz dot format.
+     */
+    char *debugToDot(DebugGraphsDetail details) const;
+
+    /*!
+     * To aid debugging applications one can use this method to write out the whole network of
+     * gstreamer elements that form the pipeline into a dot file.
+     * This file can be processed with graphviz to get an image.
+     * @param details verbose level
+     * @param file_name output base filename
+     */
+    void debugToDot(DebugGraphsDetail details, const char *file_name) const;
+
+    /*!
+     * This works like @ref gst_debug_bin_to_dot_file, but adds the current timestamp to the
+     * filename, so that it can be used to take multiple snapshots.
+     * @param details verbose level
+     * @param file_name output base filename
+     */
+    void debugToDotWithTs(DebugGraphsDetail details, const char *file_name) const;
 };
 
 inline BinPtr Bin::fromDescription(const QString & description,
