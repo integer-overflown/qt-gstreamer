@@ -525,4 +525,20 @@ namespace QGst {
 }
 Q_DECLARE_OPERATORS_FOR_FLAGS(QGst::MemoryFlags)
 QGST_REGISTER_TYPE(QGst::MemoryFlags)
+
+namespace QGst {
+    enum DebugGraphsDetails {
+        DebugGraphShowMediaType = (1 << 0),
+        DebugGraphShowCapsDetails = (1 << 1),
+        DebugGraphShowNonDefaultParams = (1 << 2),
+        DebugGraphShowStates = (1 << 3),
+        DebugGraphShowFullParams = (1 << 4),
+        DebugGraphShowAll = ((1 << 4) - 1),
+        DebugGraphShowVerbose = (int) (0xffffffff)
+    };
+}
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(QGst::DebugGraphsDetails)
+QGST_REGISTER_TYPE(QGst::DebugGraphsDetails)
+
 #endif
