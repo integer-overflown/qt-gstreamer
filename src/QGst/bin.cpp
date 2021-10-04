@@ -88,4 +88,16 @@ bool Bin::recalculateLatency()
     return gst_bin_recalculate_latency(object<GstBin>());
 }
 
+char *Bin::debugToDot(DebugGraphsDetail details) const {
+    return gst_debug_bin_to_dot_data(object<GstBin>(), static_cast<GstDebugGraphDetails>(details));
+}
+
+void Bin::debugToDot(DebugGraphsDetail details, const char *file_name) const {
+    return gst_debug_bin_to_dot_file(object<GstBin>(), static_cast<GstDebugGraphDetails>(details), file_name);
+}
+
+void Bin::debugToDotWithTs(DebugGraphsDetail details, const char *file_name) const {
+    return gst_debug_bin_to_dot_file_with_ts(object<GstBin>(), static_cast<GstDebugGraphDetails>(details), file_name);
+}
+
 }
