@@ -211,7 +211,7 @@ inline Type GetType()
     namespace QGlib { \
         template <> \
         struct GetTypeImpl<T> { \
-            inline operator Type() { return (GTYPE); }; \
+            inline operator Type() { return (GTYPE); } \
         }; \
     }
 
