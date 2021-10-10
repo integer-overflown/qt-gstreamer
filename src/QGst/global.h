@@ -179,7 +179,7 @@ QGST_WRAPPER_DECLARATION(VideoOverlay)
     namespace QGlib { \
         template <> \
         struct GetTypeImpl<QGst::TYPE##BASECLASS> { \
-            inline operator Type() { return GetType<QGst::BASECLASS>(); }; \
+            inline operator Type() { return GetType<QGst::BASECLASS>(); } \
         }; \
     }
 
