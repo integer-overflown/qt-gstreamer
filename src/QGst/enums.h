@@ -534,7 +534,7 @@ namespace QGst {
         DebugGraphShowStates = (1 << 3),
         DebugGraphShowFullParams = (1 << 4),
         DebugGraphShowAll = ((1 << 4) - 1),
-        DebugGraphShowVerbose = (int) (0xffffffff)
+        DebugGraphShowVerbose = static_cast<int>(0xffffffff)
     };
     Q_DECLARE_FLAGS(DebugGraphsDetails, DebugGraphsDetail)
 }
